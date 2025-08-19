@@ -1,79 +1,141 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## Coffee House – React Native App
 
-# Getting Started
+A polished sample coffee ordering app built with React Native and TypeScript. Browse coffees and beans, view details, manage your cart and favorites, check order history, and simulate checkout with common payment methods.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+### Features
+- **Home & Details**: Explore curated coffee items and see rich details.
+- **Cart**: Add/remove items, adjust quantities, see totals.
+- **Favorites**: Save coffees you love for quick access.
+- **Order History**: Review your previous orders.
+- **Payments (mocked)**: Showcases Apple Pay, Google Pay, and Amazon Pay flows.
+- **Smooth UI**: Custom components, gradients, and subtle Lottie animations.
 
-## Step 1: Start the Metro Server
+### Tech Stack
+- **React Native**: 0.72.4
+- **React**: 18.2
+- **TypeScript**: 4.8
+- **Navigation**: React Navigation v6 (bottom tabs + native stack)
+- **State Management**: Zustand + Immer
+- **Animations**: Lottie
+- **UI**: react-native-linear-gradient, react-native-vector-icons
+- **Utilities**: Async Storage, react-native-screens, safe-area-context
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+---
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Screenshots
 
+<p align="center">
+  <img src="src/assets/screenshots/Screenshot_1.png" alt="Screenshot 1" width="260" />
+  <img src="src/assets/screenshots/Screenshot_2.png" alt="Screenshot 2" width="260" />
+  <img src="src/assets/screenshots/Screenshot_3.png" alt="Screenshot 3" width="260" />
+</p>
+<p align="center">
+  <img src="src/assets/screenshots/Screenshot_4.png" alt="Screenshot 4" width="260" />
+  <img src="src/assets/screenshots/Screenshot_5.png" alt="Screenshot 5" width="260" />
+  <img src="src/assets/screenshots/Screenshot_6.png" alt="Screenshot 6" width="260" />
+</p>
+<p align="center">
+  <img src="src/assets/screenshots/Screenshot_7.png" alt="Screenshot 7" width="260" />
+</p>
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js >= 16
+- Yarn (recommended) or npm
+- Xcode (for iOS) with command line tools and a valid Apple ID/Team
+- Android Studio with SDKs & an emulator
+- CocoaPods (for iOS): `sudo gem install cocoapods`
+
+### Install Dependencies
 ```bash
-# using npm
-npm start
+# from project root
+yarn
 
-# OR using Yarn
+# iOS pods
+cd ios && pod install --repo-update && cd -
+```
+
+### Run the App
+```bash
+# Start Metro in one terminal
 yarn start
-```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
+# Android (in another terminal)
 yarn android
-```
 
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
+# iOS (in another terminal)
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+If you run into environment issues, follow the official React Native setup guide and ensure your emulators/simulators are configured.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+---
 
-## Step 3: Modifying your App
+## Build
 
-Now that you have successfully run the app, let's modify it.
+### Android (Release .apk/.aab)
+```bash
+# Generate a release build (device or emulator not required)
+cd android && ./gradlew assembleRelease && cd -
+# Output: android/app/build/outputs/apk/release/
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+# For Play Store, generate AAB
+cd android && ./gradlew bundleRelease && cd -
+# Output: android/app/build/outputs/bundle/release/
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### iOS (Archive → .ipa)
+1. Open `ios/Coffee_Shop_App.xcworkspace` in Xcode.
+2. Set your Team and unique Bundle Identifier under Signing & Capabilities.
+3. Select `Any iOS Device (arm64)`, Scheme `Coffee_Shop_App`, Configuration `Release`.
+4. Product → Archive → Distribute (App Store Connect or Export as .ipa).
 
-## Congratulations! :tada:
+CLI alternative:
+```bash
+xcodebuild -workspace ios/Coffee_Shop_App.xcworkspace \
+  -scheme Coffee_Shop_App \
+  -configuration Release \
+  -destination 'generic/platform=iOS' \
+  -archivePath ios/build/Coffee_Shop_App.xcarchive \
+  clean archive
 
-You've successfully run and modified your React Native App. :partying_face:
+# Create a simple exportOptions.plist (method: app-store/ad-hoc/development) then:
+xcodebuild -exportArchive \
+  -archivePath ios/build/Coffee_Shop_App.xcarchive \
+  -exportOptionsPlist ios/exportOptions.plist \
+  -exportPath ios/build/export
+```
 
-### Now what?
+---
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## Project Structure (high level)
+```
+src/
+  assets/
+    app_images/           # Icons used in UI
+    coffee_assets/        # Coffee imagery (portrait/square)
+    fonts/                # Poppins + custom icon font
+    screenshots/          # README images (linked above)
+  components/             # Reusable UI components
+  data/                   # Static coffee/beans data
+  lottie/                 # Lottie JSON animations
+  navigators/             # Tab and stack navigators
+  screens/                # App screens
+  store/                  # Zustand store
+  theme/                  # Colors, spacing, typography
+```
 
-# Troubleshooting
+---
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Testing
+```bash
+yarn test
+```
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## License
+This project is provided for educational/demo purposes. Add your preferred license file if you plan to distribute.
