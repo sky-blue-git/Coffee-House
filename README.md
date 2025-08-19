@@ -1,6 +1,6 @@
-## Coffee House – React Native App
+<img width="1080" height="2424" alt="Screenshot_1" src="https://github.com/user-attachments/assets/77cc6aeb-869d-4784-b572-e4582eea3c70" />## Coffee House – React Native App
 
-A polished sample coffee ordering app built with React Native and TypeScript. Browse coffees and beans, view details, manage your cart and favorites, check order history, and simulate checkout with common payment methods.
+A polished sample coffee ordering app built with **React Native** and **TypeScript**. Browse coffees and beans, view details, manage your cart and favorites, check order history, and simulate checkout with common payment methods.
 
 ### Features
 - **Home & Details**: Explore curated coffee items and see rich details.
@@ -74,43 +74,6 @@ If you run into environment issues, follow the official React Native setup guide
 
 ---
 
-## Build
-
-### Android (Release .apk/.aab)
-```bash
-# Generate a release build (device or emulator not required)
-cd android && ./gradlew assembleRelease && cd -
-# Output: android/app/build/outputs/apk/release/
-
-# For Play Store, generate AAB
-cd android && ./gradlew bundleRelease && cd -
-# Output: android/app/build/outputs/bundle/release/
-```
-
-### iOS (Archive → .ipa)
-1. Open `ios/Coffee_Shop_App.xcworkspace` in Xcode.
-2. Set your Team and unique Bundle Identifier under Signing & Capabilities.
-3. Select `Any iOS Device (arm64)`, Scheme `Coffee_Shop_App`, Configuration `Release`.
-4. Product → Archive → Distribute (App Store Connect or Export as .ipa).
-
-CLI alternative:
-```bash
-xcodebuild -workspace ios/Coffee_Shop_App.xcworkspace \
-  -scheme Coffee_Shop_App \
-  -configuration Release \
-  -destination 'generic/platform=iOS' \
-  -archivePath ios/build/Coffee_Shop_App.xcarchive \
-  clean archive
-
-# Create a simple exportOptions.plist (method: app-store/ad-hoc/development) then:
-xcodebuild -exportArchive \
-  -archivePath ios/build/Coffee_Shop_App.xcarchive \
-  -exportOptionsPlist ios/exportOptions.plist \
-  -exportPath ios/build/export
-```
-
----
-
 ## Project Structure (high level)
 ```
 src/
@@ -137,5 +100,4 @@ yarn test
 
 ---
 
-## License
-This project is provided for educational/demo purposes. Add your preferred license file if you plan to distribute.
+Built using React Native & TypeScript
