@@ -1,8 +1,8 @@
-# Coffee House – React Native App
+# ☕️ Coffee House – React Native App
 
 A polished sample coffee ordering app built with **React Native** and **TypeScript**. Browse coffees and beans, view details, manage your cart and favorites, check order history, and simulate checkout with common payment methods.
 
-### Features
+### ✨ Features
 - **Home & Details**: Explore curated coffee items and see rich details.
 - **Cart**: Add/remove items, adjust quantities, see totals.
 - **Favorites**: Save coffees you love for quick access.
@@ -10,7 +10,7 @@ A polished sample coffee ordering app built with **React Native** and **TypeScri
 - **Payments (mocked)**: Showcases Apple Pay, Google Pay, and Amazon Pay flows.
 - **Smooth UI**: Custom components, gradients, and subtle Lottie animations.
 
-### Tech Stack
+### 🧰 Tech Stack
 - **React Native**: 0.72.4
 - **React**: 18.2
 - **TypeScript**: 4.8
@@ -22,7 +22,7 @@ A polished sample coffee ordering app built with **React Native** and **TypeScri
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 <p align="center">
   <img src="src/assets/screenshots/Screenshot_1.png" alt="Screenshot 1" width="260" />
@@ -40,16 +40,16 @@ A polished sample coffee ordering app built with **React Native** and **TypeScri
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### ✅ Prerequisites
 - Node.js >= 16
 - Yarn (recommended) or npm
 - Xcode (for iOS) with command line tools and a valid Apple ID/Team
 - Android Studio with SDKs & an emulator
 - CocoaPods (for iOS): `sudo gem install cocoapods`
 
-### Install Dependencies
+### 📦 Install Dependencies
 ```bash
 # from project root
 yarn
@@ -58,7 +58,7 @@ yarn
 cd ios && pod install --repo-update && cd -
 ```
 
-### Run the App
+### ▶️ Run the App
 ```bash
 # Start Metro in one terminal
 yarn start
@@ -74,7 +74,7 @@ If you run into environment issues, follow the official React Native setup guide
 
 ---
 
-## Project Structure (high level)
+## 🗂️ Project Structure (high level)
 ```
 src/
   assets/
@@ -93,7 +93,7 @@ src/
 
 ---
 
-## Testing
+## 🧪 Testing
 ```bash
 yarn test
 ```
