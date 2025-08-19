@@ -1,4 +1,4 @@
-<img width="1080" height="2424" alt="Screenshot_1" src="https://github.com/user-attachments/assets/77cc6aeb-869d-4784-b572-e4582eea3c70" />## Coffee House – React Native App
+# Coffee House – React Native App
 
 A polished sample coffee ordering app built with **React Native** and **TypeScript**. Browse coffees and beans, view details, manage your cart and favorites, check order history, and simulate checkout with common payment methods.
 
@@ -100,4 +100,4 @@ yarn test
 
 ---
 
-Built using React Native & TypeScript
+Built with ❤️ using React Native & TypeScript
